@@ -80,7 +80,7 @@ public class PdfView extends PDFView implements OnPageChangeListener, OnLoadComp
     private boolean pageSnap = false;
     private FitPolicy fitPolicy = FitPolicy.WIDTH;
     private boolean singlePage = false;
-    private boolean scrollEnabled = false;
+    private boolean scrollEnabled = true;
 
     private static PdfView instance = null;
 
@@ -259,7 +259,9 @@ public class PdfView extends PDFView implements OnPageChangeListener, OnLoadComp
                     .linkHandler(this);
 
             if (!this.scrollEnabled || this.singlePage) {
-                configurator.pages(this.page - 1);
+                if (this.singlePage) {
+                    configurator.pages(this.page - 1);
+                }
                 setTouchesEnabled(false);
             } else {
                 configurator.onTap(this);
