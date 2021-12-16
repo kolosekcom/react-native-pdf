@@ -38,8 +38,7 @@ public class RCTPdfManager extends SimpleViewManager<PdfView> {
     private Context context;
     private PdfView pdfView;
 
-
-    public RCTPdfManager(ReactApplicationContext reactContext){
+    public RCTPdfManager(ReactApplicationContext reactContext) {
         this.context = reactContext;
     }
 
@@ -50,7 +49,7 @@ public class RCTPdfManager extends SimpleViewManager<PdfView> {
 
     @Override
     public PdfView createViewInstance(ThemedReactContext context) {
-        this.pdfView = new PdfView(context,null);
+        this.pdfView = new PdfView(context, null);
         return pdfView;
     }
 
@@ -123,6 +122,11 @@ public class RCTPdfManager extends SimpleViewManager<PdfView> {
     @ReactProp(name = "singlePage")
     public void setSinglePage(PdfView pdfView, boolean singlePage) {
         pdfView.setSinglePage(singlePage);
+    }
+
+    @ReactProp(name = "scrollEnabled")
+    public void setScrollEnabled(PdfView pdfView, boolean scrollEnabled) {
+        pdfView.setScrollEnabled(scrollEnabled);
     }
 
     @Override
